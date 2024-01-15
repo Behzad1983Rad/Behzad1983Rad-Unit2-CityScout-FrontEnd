@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted} from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import {RouterLink} from 'vue-router'
 import {useCookies} from 'vue3-cookies'
 import {decodeCredential, googleLogout} from 'vue3-google-login'
@@ -25,7 +25,7 @@ function deleteTrip(tripId) {
         method: "DELETE"
     })
     .then(() => {
-        alert('Trip deleted')
+       
         fetchData()
     })
     .catch(err => console.error(err))
@@ -39,9 +39,15 @@ const checkSession = () => {
 }
 
 onMounted(() => {
-    fetchData()
-    checkSession()
-})
+    fetchData(); 
+    const pollingInterval = setInterval(() => {
+        fetchData();
+    }, 200);
+    checkSession();    
+    onUnmounted(() => {
+        clearInterval(pollingInterval);
+    });
+});
 
 
 

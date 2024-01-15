@@ -1,7 +1,6 @@
 <script setup>
 import {ref, defineProps} from 'vue';
 
-// const {fetchData} = defineProps(['fetchData'])
 
 const tripsBe = ref([])
 
@@ -58,11 +57,11 @@ function addTrip() {
     <label for="destination">Destination: *</label>
     <input type="text" name="destination" placeholder="destination" v-model="trip.destination" required>
     <label for="dateOfArrival">Date of Arrival: *</label>
-    <input type="number" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
+    <input type="date" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
     <label for="duration">Duration: *</label>
     <input type="number" name="duration" placeholder="Duration" v-model="trip.duration" required>
-    <label for="cost">Cost: *</label>
-    <input type="number" name="cost" placeholder="Cost" v-model="trip.cost" required>
+    <label for="cost">:How much did you spend? *</label>
+    <input type="number" name="cost" placeholder="USD" v-model="trip.cost" required>
     <button @click="addTrip">Add Trip</button>
   </div>
 </template>
