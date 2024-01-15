@@ -57,7 +57,7 @@ function addTrip() {
     <label for="destination">Destination: *</label>
     <input type="text" name="destination" placeholder="destination" v-model="trip.destination" required>
     <label for="dateOfArrival">Date of Arrival: *</label>
-    <input type="date" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
+    <input type="number" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
     <label for="duration">Duration: *</label>
     <input type="number" name="duration" placeholder="Duration" v-model="trip.duration" required>
     <label for="cost">:How much did you spend? *</label>

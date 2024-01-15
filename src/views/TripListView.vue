@@ -25,7 +25,7 @@ function deleteTrip(tripId) {
         method: "DELETE"
     })
     .then(() => {
-       
+        alert('Trip deleted')
         fetchData()
     })
     .catch(err => console.error(err))
@@ -38,12 +38,20 @@ const checkSession = () => {
     }
 }
 
+// onMounted(() => {
+//     fetchData()
+//     checkSession()
+// })
 onMounted(() => {
     fetchData(); 
+
     const pollingInterval = setInterval(() => {
         fetchData();
     }, 200);
-    checkSession();    
+
+    checkSession();
+
+    
     onUnmounted(() => {
         clearInterval(pollingInterval);
     });

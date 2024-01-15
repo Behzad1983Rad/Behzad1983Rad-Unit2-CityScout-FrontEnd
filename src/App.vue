@@ -11,6 +11,21 @@ const router = useRouter();
 
 let isLoggedIn = ref(false)
 let userName = ''
+const updateUserSession = (userEmail) => {
+    fetch(`${import.meta.env.VITE_API_URL}/user/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userEmail: userEmail
+        })
+    })
+        .then(() => {
+            console.log('session saved')
+        })
+        .catch(err => console.error(err))
+}
 
 const callback = (response) => {
     isLoggedIn.value = true
@@ -18,21 +33,25 @@ const callback = (response) => {
     console.log(userData)
     userName = userData.given_name
     cookies.set('user_session', response.credential)
-    fetch(`${import.meta.env.VITE_API_URL}/user/login` , {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            userEmail: userData.email
-        })
+    updateUserSession(userData.email)
 
-    })
 
-    .then( () => {
-        console.log('session saved')
-    })
-    .catch( err => console.error(err))
+    
+    // fetch(`${import.meta.env.VITE_API_URL}/user/login` , {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         userEmail: userData.email
+    //     })
+
+    // })
+
+    // .then( () => {
+    //     console.log('session saved')
+    // })
+    // .catch( err => console.error(err))
 
 }
 
