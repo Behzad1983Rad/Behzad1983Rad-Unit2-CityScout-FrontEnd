@@ -3,8 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import TripListView from '../views/TripListView.vue'
 import SingleTripView from '../views/SingleTripView.vue'
 import TripEditView from '../views/TripEditView.vue'
-
 import Discover from '../views/Discover.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.DATABASE_URL),
   routes: [

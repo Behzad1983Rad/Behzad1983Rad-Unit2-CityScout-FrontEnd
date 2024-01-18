@@ -1,57 +1,77 @@
 <script setup>
+import { ref } from 'vue';
+
+import HolidayResults from '@/components/HolidayResults.vue';
+
+const countries = ref([]);
+const cityName = ref('');
 
 
-
+const searchCity = async () => {
+  try {
+    const response = await fetch(`http://localhost:4000/countries?search=${cityName.value}`);
+    if (response.ok) {
+      const fetchedCountries = await response.json();
+      console.log(fetchedCountries);     
+      
+      countries.value = fetchedCountries.countries
+    
+    } else {
+      console.error('Error fetching countries:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error fetching countries:', error.message);
+  }
+};
 
 </script>
-
-
 <template>
-
-<head>
-  <title>Discover Your Next Trip</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body class="container">
-  <h1 class="jumbotron text-center">Discover Your Next Trip</h1>
-  <div class="row">
-  <div class="col-xs-6 col-xs-offset-6">
-    <form action="/" method="GET">
-      <div class="input-group">
-        <input id="discoverForm" type="text" name="username" class="form-control"
-          placeholder="Name a City">
-        <span class="input-group-btn">
-          <button class="btn btn-success" type="submit">Go!</button>
-        </span>
+  <div class="container">
+    <h1 class="jumbotron text-center">Discover Your Next Trip</h1>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="input-group">
+          <input v-model="cityName" type="text" class="form-control" placeholder="Name a Country">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-success" @click="searchCity">Go</button>
+          </span>
+        </div>
       </div>
-    </form>
-  </div>
-</div>	  
+    </div>
+    <hr>
+    <div v-for="country in countries" :key="country.code">
+    <h1>{{ country.name }}</h1>
+    <img :src="country.flag" alt="Flag" />  
+    <h2>Languages:
     
-</body>
+    </h2>
+    <ul>
+      <li v-for="(language, index) in country.languages" :key="index">
+        {{ language }}
+      </li>
+    </ul>
+    <h2>Cities:</h2>
+      <ul>
+        <li v-for="(subdivision, index) in country.subdivisions" :key="index">
+          {{ subdivision.name }}
+        </li>
+      </ul>
+    
+    <h2>Weekend Holidays:</h2>
+    <ul>
+      <li v-for="(day, index) in country.weekend" :key="index">
+        {{ day.name }}
+      </li>
+    </ul>
 
-    <!-- <h1>Discover Your Next Trip</h1>
-    <h3>We need to add a search feature and add it to an API which provides cities info</h3>
-    <form class="example" action="action_page.php">
-    <input type="text" placeholder="Search.." name="search">
-    <button type="submit">Submit</button>
-    </form> -->
 
+  
 
-
+</div>
+  
+  </div>
 </template>
 
+
 <style>
-form {
-    margin-right: 0px;
-}
-
-h1 {
-    height: 50px;
-    text-align: center;
-}
-
-
-
 </style>
