@@ -50,7 +50,8 @@ onMounted(() => {
 });
 </script>
 
-<template >
+<template  >
+    <main class="p-3 mb-2 bg-dark text-white">
     <h2 >Trip List</h2>
     <ul >
         <li v-for="trip in tripsBe" :key="trip._id">
@@ -59,7 +60,8 @@ onMounted(() => {
             <RouterLink :to="'/trip/update/' + trip._id">Edit Trip</RouterLink>
         </li>
     </ul>
-    <hr>
+</main>
+    
     <NewTrip  :fetchData="fetchData" />
 </template>
 <style>

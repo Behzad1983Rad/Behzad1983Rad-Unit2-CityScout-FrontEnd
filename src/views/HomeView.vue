@@ -1,8 +1,9 @@
 <script setup>
 </script>
 
-<template>
-  <main>
+<template >
+  <main class="p-3 mb-2 bg-dark text-white">
+    
     <div v-if="isLoggedIn">
         <h2>Hello {{ userName }}</h2>
       
@@ -14,15 +15,5 @@
 </template>
 
 <style>
-h3 {
-  margin-left: 50px;
-  margin-top: 50px;
-  margin-right: 20px;
-}
 
-h4 {
-  margin-left: 50px;
-  margin-right: 20px;
-  margin-top: 25px;
-}
 </style>

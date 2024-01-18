@@ -46,26 +46,37 @@ const handleLogout = () => {
 onMounted(checkSession)
 </script>
 <template>
-  <header >
-    <div class="wrapper">
-        <nav class="d-flex justify-content-center"  >
-            <div class="routerLink">
-                <RouterLink  to="/">Home</RouterLink> &nbsp; &nbsp;&nbsp;&nbsp;
-                <RouterLink  to="/discover">Discover Destinations</RouterLink> &nbsp; &nbsp;&nbsp;&nbsp;
-                <RouterLink v-if="isLoggedIn" to="/trip">Explore your Trips</RouterLink> &nbsp; &nbsp;&nbsp;&nbsp;
-            </div>
-        <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-danger"  v-if="isLoggedIn" @click="handleLogout">Log Out</button>
-            <GoogleLogin type="button"  v-else :callback="callback" />
-        </div>
-      </nav>
+    <body class="p-3 mb-2 bg-dark text-white">
+        
+   
+  <header  >
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark"  >
+  <div class="container-fluid">
+    
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <RouterLink class="nav-link active" style="color: rgb(251, 252, 200);" aria-current="page" href="#" to="/">Home</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" style="color: rgb(251, 252, 200);" href="#" to="/discover">Discover Destinations</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" style="color: rgb(251, 252, 200);" href="#" v-if="isLoggedIn" to="/trip">Explore your Trips</RouterLink>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <button type="button" class="btn btn-danger"  v-if="isLoggedIn" @click="handleLogout">Log Out</button>
+        <GoogleLogin type="button"  v-else :callback="callback" />
+      </span>
     </div>
+  </div>
+</nav>
+   
   </header>
   <RouterView />
+</body>
 </template>
 <style>
-  nav {
-    margin-top: 15px;
-    margin-left: 50px;
-  }
+
 </style>

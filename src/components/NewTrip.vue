@@ -47,56 +47,31 @@ function addTrip() {
 }
 </script>
 <template>
-    <h3>Add a new Trip</h3>
-    <div class="tripForm">
-      <div class="formGroup">
-        <label for="destination">Destination: *</label>
-        <input type="text" name="destination" placeholder="destination" v-model="trip.destination" required>
-      </div>
-      <div class="formGroup">
-        <label for="dateOfArrival">Date of Arrival: *</label>
-        <input type="number" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
-      </div>
-      <div class="formGroup">
-        <label for="duration">Duration: *</label>
-        <input type="number" name="duration" placeholder="Duration" v-model="trip.duration" required>
-      </div>
-      <div class="formGroup">
-        <label for="cost">TravelExpense *</label>
-        <input type="number" name="cost" placeholder="USD" v-model="trip.cost" required>
-      </div>
-      <button type="button" class="btn btn-success" @click="addTrip">Add Trip</button>
-    </div>
+  <main class="p-3 mb-2 bg-dark text-white">
+    <form class="row g-3">
+  <div class="col-md-6">    
+    <label for="destination" class="form-label">Destination: *</label>
+    <input type="text" class="form-control" name="destination" placeholder="destination" v-model="trip.destination" required>
+  </div>
+  <div class="col-md-6">
+    <label for="dateOfArrival" class="form-label">Date of Arrival: *</label>
+    <input type="number" class="form-control" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
+  </div>
+  <div class="col-12">
+    <label for="duration" class="form-label">Duration: *</label>
+    <input type="number" class="form-control" name="duration" placeholder="Duration" v-model="trip.duration" required>
+  </div>
+  <div class="col-12">
+    <label for="cost" class="form-label">TravelExpense *</label>
+    <input type="number" class="form-control" name="cost" placeholder="USD" v-model="trip.cost" required>
+  </div>
+  <div class="col-12">
+    <button type="button" class="btn btn-success" @click="addTrip">Add Trip</button>
+  </div>
+</form>
+
+  </main>
   </template>
   <style>
-    h3 {
-        margin-left: 50px;
-    }
-    input {
-        margin-right: 180px;
-    }
-    .tripForm {
-      display: flex;
-      flex-direction: column;
-      padding-right: 30px;
-    }
-    .formGroup {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .formGroup label {
-      margin-left: 50px;
-      flex-shrink: 0; /* Prevent label from shrinking */
-    }
-    .formGroup input {
-      width: 200px; /* Set the width of the input */
-      margin-left: auto; /* Align input to the right */
-    }
-    button {
-      width: 100px; /* Set the fixed width */
-      margin-left: 50px;
-      height: 35px;
-    }
+    
   </style>

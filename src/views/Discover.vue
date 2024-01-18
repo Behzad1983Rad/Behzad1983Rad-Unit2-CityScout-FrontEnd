@@ -26,6 +26,7 @@ const searchCity = async () => {
 
 </script>
 <template>
+<main class="p-3 mb-2 bg-dark text-white">
   <div class="container">
     <h1 class="jumbotron text-center">Discover Your Next Trip</h1>
     <div class="row">
@@ -38,7 +39,7 @@ const searchCity = async () => {
         </div>
       </div>
     </div>
-    <hr>
+   
     <div v-for="country in countries" :key="country.code">
     <h1>{{ country.name }}</h1>
     <img :src="country.flag" alt="Flag" />  
@@ -64,14 +65,15 @@ const searchCity = async () => {
       </li>
     </ul>
 
-
-  
-
-</div>
-  
   </div>
+  
+</div>
+</main>
 </template>
 
 
 <style>
+main {
+  height: initial;
+}
 </style>

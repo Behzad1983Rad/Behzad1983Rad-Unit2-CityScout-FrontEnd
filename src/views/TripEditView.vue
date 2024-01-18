@@ -49,21 +49,38 @@ onMounted(LoadTripData)
 </script>
 
 <template>
+     <main class="p-3 mb-2 bg-dark text-white">
 
     <h1>Edit {{trip.destination}}</h1>
+    <form class="row g-3">
+  <div class="col-md-6">    
+    <label for="destination" class="form-label">Destination: *</label>
+    <input type="text" class="form-control" name="destination" placeholder="destination" v-model="trip.destination" required>
+    
+  </div>
+  <div class="col-md-6">
+    <label for="dateOfArrival" class="form-label">Date of Arrival: *</label>
+    <input type="number" class="form-control" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
+  </div>
+  <div class="col-12">
+    
+    <label for="duration" class="form-label">Duration: *</label>
+    <input type="number" class="form-control" name="duration" placeholder="Duration" v-model="trip.duration" required>
+  </div>
+  <div class="col-12">
+   
+    <label for="cost" class="form-label">TravelExpense *</label>
+    <input type="number" class="form-control" name="cost" placeholder="Cost" v-model="trip.cost" required>
+  </div>
+  <div class="col-12">
+    
+    <button type="button" class="btn btn-success" @click="updateTrip">Add Trip</button>
+  </div>
+</form>
 
-    <div class="tripForm">
-        <label for="destination">Destination: *</label>
-        <input type="text" name="destination" placeholder="destination" v-model="trip.destination" required>
-        <label for="dateOfArrival">Date of Arrival: *</label>
-        <input type="number" name="dateOfArrival" placeholder="Date Of Arrival" v-model="trip.dateOfArrival" required>
-        <label for="duration">Duration: *</label>
-        <input type="number" name="duration" placeholder="Duration" v-model="trip.duration" required>
-        <label for="cost">Cost: *</label>
-        <input type="number" name="cost" placeholder="Cost" v-model="trip.cost" required>
-        <button @click="updateTrip">Add Trip</button>
 
-    </div>
+
+</main>
 
 
 </template>
