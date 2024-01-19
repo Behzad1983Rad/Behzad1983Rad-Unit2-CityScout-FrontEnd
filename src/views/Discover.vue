@@ -9,7 +9,7 @@ const cityName = ref('');
 
 const searchCity = async () => {
   try {
-    const response = await fetch(`https://deft-pika-3b6908.netlify.app/countries?search=${cityName.value}`);
+    const response = await fetch(`https://deft-pika-3b6908.netlify.app/api/countries?search=${cityName.value}`);
     if (response.ok) {
       const fetchedCountries = await response.json();
       console.log(fetchedCountries);     
