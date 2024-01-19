@@ -19,7 +19,8 @@ const callback = (response) => {
         method: "POST",
         headers: {
             "user-email": userData.email,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             userEmail: userData.email

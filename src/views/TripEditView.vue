@@ -32,7 +32,8 @@ const updateTrip = () => {
     fetch(`${import.meta.env.VITE_API_URL}/trip/${tripId}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify(trip.value)
     })
