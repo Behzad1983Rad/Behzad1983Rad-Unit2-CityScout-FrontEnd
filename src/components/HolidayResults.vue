@@ -11,7 +11,7 @@ const showCountryDetails = (country) => {
 </script>
 
 <template>
-  <body class="p-3 mb-2 bg-dark text-white">
+  <body >
   <div>
     <h2>Your Next Country to Visit</h2>
 

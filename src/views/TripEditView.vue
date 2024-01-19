@@ -49,7 +49,7 @@ onMounted(LoadTripData)
 </script>
 
 <template>
-     <main class="p-3 mb-2 bg-dark text-white">
+     <main >
 
     <h1>Edit {{trip.destination}}</h1>
     <form class="row g-3">

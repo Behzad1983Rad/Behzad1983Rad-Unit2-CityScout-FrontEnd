@@ -35,7 +35,7 @@ const searchCity = async () => {
 </script>
 
 <template>
-    <main class="p-3 mb-2 bg-dark text-white">
+    <main >
     <div>
         
         <div v-for="country in countries" :key="country.code">

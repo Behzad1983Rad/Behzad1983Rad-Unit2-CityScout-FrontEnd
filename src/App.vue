@@ -12,7 +12,7 @@ const userName = ref('')
 const callback = (response) => {
     isLoggedIn.value = true
     const userData = decodeCredential(response.credential)
-    console.log(userData.email)
+    // console.log(userData.email)
     userName.value = userData.given_name
     cookies.set('user_session', response.credential)
     fetch(`${import.meta.env.VITE_API_URL}/user/login` , {
@@ -49,8 +49,8 @@ onMounted(checkSession)
     <body class="p-3 mb-2 bg-dark text-white">
         
    
-  <header  >
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark"  >
+  <header style="background-color: rgba(0, 255, 255, 0);" >
+    <nav style="margin-left: 30px;" class="navbar navbar-expand-lg navbar-light bg-dark"  >
   <div class="container-fluid">
     
     <div class="collapse navbar-collapse" id="navbarText">
@@ -78,5 +78,17 @@ onMounted(checkSession)
 </body>
 </template>
 <style>
+body{
+  background-image: url('../src/assets/images/img1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat:no-repeat;
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: rgba(250, 235, 215, 0);
+
+  
+  
+}
 
 </style>
