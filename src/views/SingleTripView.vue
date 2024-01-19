@@ -21,8 +21,18 @@ const cityName = ref('');
 
 const searchCity = async () => {
     try {
-        const response = await fetch(`https://deft-pika-3b6908.netlify.app/api/countries?search=${trip.value.destination}`);
-        if (response.ok) {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/countries?search=${trip.value.destination}` ,
+        {
+        method: 'GET',
+        headers:{
+            "user-email": userEmail.value,
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
+
+        },
+        });
+
+        if (response.ok) { 
             const fetchedCountries = await response.json();
             countries.value = fetchedCountries.countries;
         } else {

@@ -16,7 +16,15 @@ const trip = ref({
 
 
 const LoadTripData = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/trip/${tripId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/trip/${tripId}` , 
+    {
+      method: 'GET',
+      headers:{
+          "user-email": userEmail.value,
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*'
+        },
+    })
     .then(res => res.json()) 
     .then(data => {
         trip.value = {

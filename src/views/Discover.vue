@@ -9,7 +9,16 @@ const cityName = ref('');
 
 const searchCity = async () => {
   try {
-    const response = await fetch(`https://deft-pika-3b6908.netlify.app/api/countries?search=${cityName.value}`);
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/countries?search=${cityName.value}`,
+    {
+      method: 'GET',
+      headers:{
+          "user-email": userEmail.value,
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*'
+
+        },
+    });
     if (response.ok) {
       const fetchedCountries = await response.json();
       console.log(fetchedCountries);     
