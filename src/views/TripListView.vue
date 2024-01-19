@@ -15,7 +15,9 @@ const fetchData = () => {
     fetch(`${import.meta.env.VITE_API_URL}/trip`, {
         headers:{
             "user-email": userEmail.value,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
+
         },
     })
     .then( response => response.json() )
