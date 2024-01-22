@@ -17,10 +17,10 @@ const callback = (response) => {
     cookies.set('user_session', response.credential)
     fetch(`${import.meta.env.VITE_API_URL}/user/login` , {
         method: "POST",
+        mode: 'cors',
         headers: {
             "user-email": userData.email,
             "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
             userEmail: userData.email

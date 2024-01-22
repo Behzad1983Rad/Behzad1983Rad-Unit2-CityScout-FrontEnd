@@ -25,6 +25,7 @@ function addTrip() {
     }
     fetch(`${import.meta.env.VITE_API_URL}/trip/new` , {
         method: "POST",
+        mode: 'cors',
         headers: {
             "user-email": userEmail.value ,
             "Content-Type": "application/json",

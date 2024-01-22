@@ -9,16 +9,7 @@ const cityName = ref('');
 
 const searchCity = async () => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/countries?search=${cityName.value}`,
-    {
-      method: 'GET',
-      headers:{
-          "user-email": userEmail.value,
-          "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*'
-
-        },
-    });
+    const response = await fetch(`http://localhost:4000/countries?search=${cityName.value}`);
     if (response.ok) {
       const fetchedCountries = await response.json();
       console.log(fetchedCountries);     

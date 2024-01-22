@@ -14,11 +14,10 @@ const userEmail = ref('')
 const fetchData = () => {
     fetch(`${import.meta.env.VITE_API_URL}/trip`, {
         method: 'GET',
+        mode: 'cors',
         headers:{
             "user-email": userEmail.value,
-            "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': '*'
-
+            "Content-Type": "application/json"
         },
     })
     .then( response => response.json() )
