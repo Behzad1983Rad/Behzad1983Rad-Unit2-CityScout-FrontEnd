@@ -24,7 +24,7 @@ const LoadTripData = () => {
       headers:{
           "user-email": userEmail.value,
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*'
+          "Access-Control-Allow-Origin": "*"
         },
     })
     .then(res => res.json()) 

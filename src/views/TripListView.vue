@@ -17,7 +17,8 @@ const fetchData = () => {
         mode: 'cors',
         headers:{
             "user-email": userEmail.value,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
         },
     })
     .then( response => response.json() )
