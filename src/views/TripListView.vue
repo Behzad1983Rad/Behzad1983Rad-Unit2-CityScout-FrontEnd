@@ -52,10 +52,10 @@ onMounted(() => {
 });
 </script>
 
-<template  >
+<template>
     <main>
     <h2 >Trip List</h2>
-    <ul >
+    <ul>
         <li style="display:flex; flex-direction: row; justify-content: flex-start; align-content: center; align-items: center;" v-for="trip in tripsBe" :key="trip._id">
             <RouterLink class="tripList" style=" width: 200px;" :to="'/trip/'+ trip._id" >{{ `My Trip to ${trip.destination} in ${trip.dateOfArrival} `}}</RouterLink>
             <button type="button" class="bn632-hover bn21" @click="deleteTrip(trip._id)">Delete </button> &nbsp;
